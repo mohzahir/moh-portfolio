@@ -1,12 +1,11 @@
 # استخدام خادم Apache مع إصدار PHP 8.2
 FROM php:8.2-apache
 
-# تثبيت متطلبات النظام الأساسية
+# تثبيت متطلبات النظام الأساسية و Node.js
 RUN apt-get update && apt-get install -y \
-    libzip-dev \
-    zip \
-    unzip \
-    git \
+    libzip-dev zip unzip git curl \
+    && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+    && apt-get install -y nodejs \
     && docker-php-ext-install pdo_mysql zip
 
 # تفعيل خاصية الروابط في خادم Apache (مهم جداً للارافل)
@@ -28,6 +27,9 @@ RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cac
 
 # تثبيت مكتبات لارافل
 RUN composer install --optimize-autoloader --no-dev
+
+# بناء ملفات التصميم (CSS/JS) باستخدام Vite/NPM
+RUN npm install && npm run build
 
 # فتح المنفذ 80 للإنترنت
 EXPOSE 80

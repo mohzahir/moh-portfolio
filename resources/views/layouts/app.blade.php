@@ -120,7 +120,8 @@
                 </div>
             </header>
 
-            {{ $slot }}
+            {{ $slot ?? '' }}
+            @yield('content')
 
         </div>
     </div>

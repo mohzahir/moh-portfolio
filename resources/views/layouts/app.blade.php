@@ -108,6 +108,14 @@
                                 <span class="link">اتصل</span>
                             </a>
                         </li>
+                        
+                        <li>
+                            <a href="{{ url('/hr-tools/cv-redactor') }}">
+                                <span class="icon fas fa-robot"></span>
+                                <span class="link" style="color: #ff5722;">AI Tools 🔥</span>
+                            </a>
+                        </li>
+
                     </ul>
                 </div>
             </header>

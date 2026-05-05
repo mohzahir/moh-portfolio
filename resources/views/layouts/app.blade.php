@@ -120,7 +120,10 @@
                 </div>
             </header>
 
-            {{ $slot ?? '' }}
+            @isset($slot)
+                {{ $slot }}
+            @endisset
+
             @yield('content')
 
         </div>

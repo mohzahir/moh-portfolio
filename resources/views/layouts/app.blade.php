@@ -110,7 +110,7 @@
                         </li>
                         
                         <li>
-                            <a href="{{ url('/hr-tools/cv-redactor') }}">
+                            <a href="#tools-card">
                                 <span class="icon fas fa-robot"></span>
                                 <span class="link" style="color: #ff5722;">AI Tools 🔥</span>
                             </a>

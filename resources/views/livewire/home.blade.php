@@ -1703,13 +1703,7 @@
                         </p>
                         
                         <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 1px solid #eee;">
-                            <iframe 
-                                src="https://cv-redactor.streamlit.app/?embed=true" 
-                                width="100%" 
-                                height="800px" 
-                                frameborder="0"
-                                style="border: none; background: white; width: 100%;">
-                            </iframe>
+                            @livewire('cv-redactor')
                         </div>
                     </div>
                 </div>

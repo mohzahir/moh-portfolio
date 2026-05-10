@@ -15,8 +15,13 @@ class CvRedactor extends Component
 
     public function processFiles()
     {
+        // التحقق الجديد: تأكد أن المصفوفة ليست فارغة أولاً، ثم تحقق من نوع الملفات
         $this->validate([
-            'cvFiles.*' => 'required|mimes:pdf,docx|max:10240', // أقصى حجم 10 ميجا للملف
+            'cvFiles'   => 'required|array|min:1', 
+            'cvFiles.*' => 'mimes:pdf,docx|max:10240',
+        ], [
+            'cvFiles.required' => 'يرجى تحديد ملف واحد على الأقل قبل الضغط على طمس البيانات.',
+            'cvFiles.*.mimes' => 'عذراً، الأداة تدعم ملفات PDF و Word فقط.'
         ]);
 
         $this->errorMessage = '';
